@@ -97,7 +97,7 @@ def GetDomainURL():
 def SetPolicy(OptedPolicy):   
     basePolicy=configdata['RANGER']['POLICIES']['POSTAPI']['BodyParameters']
     selectedPolilcy=configdata['RANGER']['POLICIES'][OptedPolicy]
-    basePolicy['isEnabled']=selectedPolilcy['isEnabled']
+    basePolicy['isEnabled']=True #selectedPolilcy['isEnabled']
     basePolicy['name']=selectedPolilcy['name']
     basePolicy['description']=selectedPolilcy['description']
     basePolicy['resources']['catalog']['values']=selectedPolilcy['catalogAccess']

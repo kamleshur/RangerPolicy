@@ -1,1 +1,6 @@
 __pycache__/*
+RangerPolicy/build/*
+RangerPolicy/createWheel/*
+RangerPolicy/dist/*
+RangerPolicy.egg-info
+.gitignore
