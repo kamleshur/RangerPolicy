@@ -1,0 +1,220 @@
+{
+	"PROCESS_LOG": {
+		"LOG_FILE_RETENTION_PERIOD": 10,
+		"LOG_FILE_MAX_FILE_SIZE": 50000000,
+		"PRINT_LOG_MESSGAE_ON_CONSOLE": "YES",
+		"ENABLE_FILE_LOGGING": "YES",
+		"LOG_LEVEL": "WARNING",
+		"LOG_FILE_NAME": "LogForRanger_"
+	},
+	"SYSTEM_PARAMETERS": {
+		"LOCAL_FILE_PATH": "C:\\SalesForce-UR\\",
+		"CLEANUP_HISTORICAL_FILES": "NO",
+		"TIMEZONE": "Etc/UTC",
+		"CREDENTIAL": "SYSTEM_ENVIRONMENT",
+		"ENTITY_NAME": "RANGER",
+		"HOSTNAME": {
+			"DEV": [
+				"IN-5DVY303"
+			],
+			"UAT": [],
+			"COB": [],
+			"PROD": []
+		}
+	},
+	"RANGER": {
+		"DomainURL": {
+			"DEV": "http://ae0bc4bf4fee54635a3f4b92433097bb-411690499.us-west-2.elb.amazonaws.com:6080",
+			"UAT": "http://ae0bc4bf4fee54635a3f4b92433097bb-411690499.us-west-2.elb.amazonaws.com:6080",
+			"COB": "http://ae0bc4bf4fee54635a3f4b92433097bb-411690499.us-west-2.elb.amazonaws.com:6080",
+			"PROD": "http://ae0bc4bf4fee54635a3f4b92433097bb-411690499.us-west-2.elb.amazonaws.com:6080"
+		},
+		"AUTHENTICATION": {
+			"UserName": "admin",
+			"Password": "fromSystem"
+		},
+		"ROLES": {
+			"GETAPI": {
+				"EndPoint": "/service/public/v2/api/roles",
+				"QueryOrHeaderParameters": ""
+			},
+			"DELETEAPI": {
+				"EndPoint": "/service/public/v2/api/roles/name",
+				"QueryOrHeaderParameters": ""
+			},
+			"POSTAPI": {
+				"EndPoint": "/service/public/v2/api/roles",
+				"QueryOrHeaderParameters": "",
+				"BodyParameters": {
+					"updatedBy": "FromWEB",
+					"createdBy": "FromWEB",
+					"createdByUser": "admin",
+					"isEnabled": false,
+					"name": "Define Role Name",
+					"description": "Provide Role Description",
+					"roles": [
+						{
+							"name": "",
+							"isAdmin": false
+						}
+					],
+					"groups": [
+						{
+							"name": "",
+							"isAdmin": false
+						}
+					],
+					"options": {
+						"property1": {},
+						"property2": {}
+					},
+					"users": [
+						{
+							"name": "",
+							"isAdmin": false
+						}
+					]
+				}
+			},
+			"TESTROLE": {
+				"isEnabled": false,
+				"name": "RoleToTestFromWeb",
+				"description": "This Role Is Created From Web",
+				"options": {},
+				"roles": [],
+				"groups": [
+					{
+						"name": "app_cpbv_dev_sdp",
+						"isAdmin": false
+					}
+				],
+				"users": [
+					{
+						"name": "kamleshp@useready.com",
+						"isAdmin": false
+					}
+				]
+			}
+		},
+		"POLICIES": {
+			"GETAPI": {
+				"EndPoint": "/service/plugins/policies",
+				"QueryOrHeaderParameters": ""
+			},
+			"DELETEAPI": {
+				"EndPoint": "/service/plugins/policies",
+				"QueryOrHeaderParameters": ""
+			},
+			"PUTAPI": {
+				"EndPoint": "/service/plugins/policies",
+				"QueryOrHeaderParameters": ""
+			},
+			"POSTAPI": {
+				"EndPoint": "/service/plugins/policies",
+				"QueryOrHeaderParameters": "",
+				"BodyParameters": {
+					"isEnabled": false,
+					"version": 1,
+					"service": "starburst-enterprise",
+					"name": "Policy Name",
+					"policyType": 0,
+					"policyPriority": 0,
+					"description": "Policy Description",
+					"isAuditEnabled": true,
+					
+					"resources": {
+						"schema": {
+							"values": [
+								""
+							],
+							"isExcludes": false,
+							"isRecursive": false
+						},
+						"catalog": {
+							"values": [
+								"*"
+							],
+							"isExcludes": false,
+							"isRecursive": false
+						},
+						"column": {
+							"values": [
+								"*"
+							],
+							"isExcludes": false,
+							"isRecursive": false
+						},
+						"table": {
+							"values": [
+								"*"
+							],
+							"isExcludes": false,
+							"isRecursive": false
+						}
+					},
+					"policyItems": [
+						{
+							"accesses": [
+								{
+									"type": "select",
+									"isAllowed": true
+								}
+							],
+							"users": [],
+							"groups": [],
+							"roles": [],
+							"conditions": [],
+							"delegateAdmin": false
+						}
+					],
+					"denyPolicyItems": [],
+					"allowExceptions": [],
+					"denyExceptions": [],
+					"dataMaskPolicyItems": [],
+					"rowFilterPolicyItems": [],
+					"serviceType": "starburst-enterprise",
+					"options": {},
+					"validitySchedules": [],
+					"policyLabels": [],
+					"zoneName": "",
+					"isDenyAllElse": false
+				}
+			},
+			"HiveNAMPolicy": {
+				"isEnabled": true,
+				"name": "Hive data For NAM Region",
+				"description": "Policy To Access Hive data For NAM Region",
+				"catalogAccess": [
+					"hivenot"
+				],
+				"schemaAccess": [
+					"indspnee_work"
+				],
+				"tableAccess": [
+					"trans",
+					"cwrk"
+				],
+				"columnAccess": [
+					"*"
+				],
+				"users": [],
+				"groups": {
+					"DEV": [
+						"app_cpbv_dev_sdp"
+					],
+					"UAT": [
+						"app_cpbv_uat_sdp"
+					],
+					"COB": [
+						"app_cpbv_cob_sdp"
+					],
+					"PROD": [
+						"app_cpbv_prod_sdp"
+					]
+				},
+				"roles": [],
+				"conditions": []
+			}
+		}
+	}
+}
