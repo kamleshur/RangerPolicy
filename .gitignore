@@ -1,4 +1,5 @@
 __pycache__/*
+RangerPolicy/__pycache__/*
 RangerPolicy/build/*
 RangerPolicy/createWheel/*
 RangerPolicy/dist/*
